@@ -35,8 +35,8 @@ void selectSort(int* Ref) {
 void interchange(int* Ref, int p, int q, int r) {
     int i = q-p+1;
     int j = r-q;
-    int* L = malloc(sizeof(i+1));
-    int* R = malloc(sizeof(j+1));
+    int* L = malloc(sizeof(int)*(i+1));
+    int* R = malloc(sizeof(int)*(j+1));
     for ( i = 1; i < (q-p+1); i++) {
         L[i] = Ref[p+i-1];
     }
@@ -121,20 +121,18 @@ void print(int* ref, int size) {
 }
 
 int main(int argc, char const *argv[]) {
-    int size = 100;
+    int size = 1000;
     int* vect;
 
     clock_t start, end;
     double cpu_time_used;
-
+/*
 // Teste por Insertion
     start = clock();    
     vect = malloc(sizeof(int)*size);
     for (int i = 0; i < size; i++) {
         vect[i] = size - i;
-    }/*
-    printf("Vetor original\n");
-    print(vect, size);*/
+    }
    
     printf("Ordenando por insertion...\n");
     insertSort(vect);
@@ -149,9 +147,7 @@ int main(int argc, char const *argv[]) {
     vect = malloc(sizeof(int)*size);
     for (int i = 0; i < size; i++) {
         vect[i] = size - i;
-    }/*
-    printf("Vetor original\n");
-    print(vect, size);*/
+    }
 
     printf("Ordenando por selection...\n");
     selectSort(vect);
@@ -159,16 +155,14 @@ int main(int argc, char const *argv[]) {
     cpu_time_used = ((double)(end-start))/CLOCKS_PER_SEC;
     printf("Select Sort:\tTempo consumido: %d\n", cpu_time_used);
     free(vect);
-    start = end = 0;
+    start = end = 0;*/
 
 // Teste por Mergesort
     start = clock();    
     vect = malloc(sizeof(int)*size);
     for (int i = 0; i < size; i++) {
         vect[i] = size - i;
-    }/*
-    printf("Vetor original\n");
-    print(vect, size);
+    }
 
     printf("Ordenando por mergesort...\n");
     mergeSort(vect, 0, size);
@@ -176,17 +170,15 @@ int main(int argc, char const *argv[]) {
     cpu_time_used = ((double)(end-start))/CLOCKS_PER_SEC;
     printf("Merge Sort:\tTempo consumido: %d\n", cpu_time_used);
     free(vect);
-    start = end = 0;*/
-
+    start = end = 0;
+/*
 // Teste por Heapsort
     start = clock();    
     vect = malloc(sizeof(int)*size);
     for (int i = 0; i < size; i++) {
         vect[i] = size - i;
-    }/*
-    printf("Vetor original\n");
-    print(vect, size);*/
-
+    }
+    
     printf("Ordenando por heapsort...\n");
     heapsort(vect, size);
     end = clock();
@@ -194,6 +186,7 @@ int main(int argc, char const *argv[]) {
     printf("Heap Sort:\tTempo consumido: %d\n", cpu_time_used);
     free(vect);
     start = end = 0;
+*/
 
     return 0;
 }
